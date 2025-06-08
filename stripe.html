@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Kidney Aid Donation</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      text-align: center;
+    }
+    .container {
+      max-width: 440px;
+      margin: 0 auto;
+      padding: 10px;
+      background: #ffffff;
+      border-radius: 10px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .banner-image {
+      width: 100%;
+      height: auto;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 12px 10px 5px;
+    }
+    .toggle-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .toggle-buttons button {
+      background: #eee;
+      border: none;
+      padding: 6px 12px;
+      margin: 0 5px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .toggle-buttons .active {
+      background: #ff6600;
+      color: white;
+    }
+    .amounts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 10px 0;
+    }
+    .amounts button {
+      background: #fff;
+      border: 2px solid #ccc;
+      padding: 8px 14px;
+      margin: 6px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .amounts button.selected {
+      background: #ff6600;
+      color: white;
+      border-color: #cc3300;
+    }
+    input[type="email"] {
+      width: 85%;
+      padding: 10px;
+      margin: 10px auto;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      display: block;
+    }
+    .donate-btn {
+      background: linear-gradient(to bottom, #ff6600, #cc3300);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      margin: 10px auto;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 85%;
+      box-shadow: 0 3px #992200;
+    }
+    .footer-note {
+      font-size: 13px;
+      margin: 8px 0 4px;
+    }
+    .footer-link {
+      font-size: 13px;
+    }
+  </style>
+  <script>
+    function selectAmount(amount) {
+      document.querySelectorAll('.amounts button').forEach(btn => btn.classList.remove('selected'));
+      const selected = document.getElementById('amount-' + amount);
+      if (selected) selected.classList.add('selected');
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <img src="top-phone.jpg" alt="Kidney Aid Top Banner" class="banner-image" />
+    <h1>KIDNEYAID</h1>
+    <h2>Give kindly</h2>
+    <div class="toggle-buttons">
+      <button class="active">One-off</button>
+      <button>Monthly</button>
+    </div>
+    <div class="amounts">
+      <button id="amount-1" onclick="selectAmount(1)">£1</button>
+      <button id="amount-5" onclick="selectAmount(5)">£5</button>
+      <button id="amount-10" onclick="selectAmount(10)">£10</button>
+    </div>
+    <input type="email" placeholder="enter email to win" required />
+    <button class="donate-btn">Donate Now</button>
+    <p class="footer-note">Secure Easy Payment Via <span style="color:#635bff; font-weight:bold">stripe</span></p>
+    <p class="footer-link">Thank You!</p>
+  </div>
+</body>
+</html>
